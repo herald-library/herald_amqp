@@ -23,3 +23,5 @@ erl_crash.dump
 herald_amqp-*.tar
 
 log/*
+
+example/*
