@@ -4,7 +4,7 @@ Plugin for use [Herald](https://hexdocs.pm/herald) with AMQP protocol.
 
 To use it, follow these steps:
 
-### Install it
+## Install it
 
 Put in your `mix.exs` and run `mix deps.get`:
 
@@ -18,7 +18,7 @@ def deps do
 end
 ```
 
-### Configure
+## Configure
 
 Add `amqp_url` in your configuration, as bellow:
 
@@ -34,7 +34,7 @@ config :herald,
   amqp_url: {:system, "AMQP_URL"}
 ```
 
-### Add it in your Supervisor three
+## Start Herald.AMQP
 
 In your application, find the file `application.ex`, and put `Herald.AMQP` in the children list, according the example bellow:
 
@@ -60,6 +60,6 @@ defmodule ExampleApp.Application do
 end
 ```
 
-### Start
+## Let's go
 
 Now, you only need follow the steps in your [Quick Start](https://hexdocs.pm/herald/) guide and start with Herald!
