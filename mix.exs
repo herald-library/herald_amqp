@@ -4,9 +4,18 @@ defmodule Herald.AMQP.MixProject do
   def project do
     [
       app: :herald_amqp,
+      name: "Herald.AMQP",
       version: "0.1.0",
       elixir: "~> 1.8",
+      description: "Plugin to use Herald with AMQP",
       start_permanent: Mix.env() == :prod,
+      package: [
+        links: %{
+          github: "https://github.com/radsquare/herald"
+        },
+        licenses: ["MIT"]
+      ],
+      docs: docs(),
       deps: deps()
     ]
   end
@@ -22,7 +31,17 @@ defmodule Herald.AMQP.MixProject do
   defp deps do
     [
       {:amqp, "~> 1.4.0"},
-      {:herald, "0.1.0-beta.5"}
+      {:herald, "~> 0.1"},
+
+      {:ex_doc, "~> 0.21", only: :dev, runtime: false},
+    ]
+  end
+
+  def docs() do
+    [
+      extra_section: "README",
+      main: "readme",
+      extras: ["README.md"]
     ]
   end
 end
