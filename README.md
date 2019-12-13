@@ -1,21 +1,65 @@
 # Herald.AMQP
 
-**TODO: Add description**
+Plugin for use [Herald](https://hexdocs.pm/herald) with AMQP protocol.
 
-## Installation
+To use it, follow these steps:
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `herald_amqp` to your list of dependencies in `mix.exs`:
+### Install it
+
+Put in your `mix.exs` and run `mix deps.get`:
 
 ```elixir
 def deps do
   [
-    {:herald_amqp, "~> 0.1.0"}
+    # ... Another dependencies
+    {:herald, "~> 0.1"},
+    {:herald_amqp, "~> 0.1"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/herald_amqp](https://hexdocs.pm/herald_amqp).
+### Configure
 
+Add `amqp_url` in your configuration, as bellow:
+
+```elixir
+config :herald,
+  amqp_url: "amqp://my.broker.url"
+```
+
+Case your prefer is to use environment variables, configure as bellow:
+
+```elixir
+config :herald,
+  amqp_url: {:system, "AMQP_URL"}
+```
+
+### Add it in your Supervisor three
+
+In your application, find the file `application.ex`, and put `Herald.AMQP` in the children list, according the example bellow:
+
+```elixir
+defmodule ExampleApp.Application do
+  # See https://hexdocs.pm/elixir/Application.html
+  # for more information on OTP Applications
+  @moduledoc false
+
+  use Application
+
+  def start(_type, _args) do
+    # List all child processes to be supervised
+    children = [
+      {Herald.AMQP, []}
+    ]
+
+    # See https://hexdocs.pm/elixir/Supervisor.html
+    # for other strategies and supported options
+    opts = [strategy: :one_for_one, name: ExampleApp.Supervisor]
+    Supervisor.start_link(children, opts)
+  end
+end
+```
+
+### Start
+
+Now, you only need follow the steps in your [Quick Start](https://hexdocs.pm/herald/) guide and start with Herald!
