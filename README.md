@@ -1,5 +1,7 @@
 # Herald.AMQP
 
+[![Elixir CI](https://github.com/herald-library/herald_amqp/actions/workflows/elixir.yml/badge.svg)](https://github.com/herald-library/herald_amqp/actions/workflows/elixir.yml)
+
 Plugin for use [Herald](https://hexdocs.pm/herald) with AMQP protocol.
 
 To use it, follow these steps:
