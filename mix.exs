@@ -30,7 +30,7 @@ defmodule Herald.AMQP.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:amqp, "~> 2.0.0"},
+      {:amqp, "~> 2.1.1"},
       {:herald, "~> 0.1"},
 
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
